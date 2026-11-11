@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Crect width='22' height='22' rx='6' fill='%230F7A5A'/%3E%3Cpath d='M4.5 16 C 8 15.5, 9 9.5, 13.5 8' stroke='white' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16.5' cy='5.5' r='1.9' fill='white'/%3E%3C/svg%3E">
+<meta property="og:title" content="Trajectories">
+<meta property="og:description" content="A system for physicians and clinics. Currently in pilot development.">
+<title>Trajectories</title>
+<meta name="description" content="Trajectories — a system for physicians and clinics. Currently in pilot development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap">
+<style>
+  /* Layout: one quiet screen — mark, name, slogan, one sentence, founder, contact. Same tokens as the full site. */
+  :root {
+    --bg: #FFFFFF; --bg2: #F6F6F4; --ink: #0E1416; --muted: #6B7072; --line: #E6E6E2; --line2: #D9DAD6;
+    --accent: #0F7A5A; --accent-ink: #FFFFFF; --accent-soft: #DDEFE6;
+    --display: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E1416; --bg2: #141A1B; --ink: #EEF1EE; --muted: #9A9EA0; --line: #2A3233; --line2: #3A4446;
+      --accent: #3DB68C; --accent-ink: #0B1A14; --accent-soft: #173128; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E1416; --bg2: #141A1B; --ink: #EEF1EE; --muted: #9A9EA0; --line: #2A3233; --line2: #3A4446;
+    --accent: #3DB68C; --accent-ink: #0B1A14; --accent-soft: #173128; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.5; margin: 0;
+    display: flex; flex-direction: column; min-height: 100vh; }
+  .wrap { width: 100%; max-width: 40rem; margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  header .wrap { display: flex; justify-content: flex-end; padding-block: 1rem; }
+  .langsw { appearance: none; display: inline-flex; align-items: center; gap: 0.35rem; font: 600 0.8rem var(--body); color: var(--ink);
+    border: 1px solid var(--line2); border-radius: 999px; padding: 0.32rem 0.72rem; background: var(--bg); cursor: pointer; }
+  .langsw:hover { border-color: var(--accent); color: var(--accent); }
+  .langsw svg { width: 15px; height: 15px; }
+  main { flex: 1; display: grid; align-items: center; }
+  main .wrap { display: grid; gap: 1.4rem; justify-items: center; text-align: center; padding-block: 3rem 4rem; }
+  .mark { width: 64px; height: 64px; border-radius: 18px; background: var(--accent); display: block; }
+  .mark svg { width: 100%; height: 100%; display: block; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.2rem, 9vw, 3.6rem); letter-spacing: 0.08em; text-transform: uppercase; margin: 0; line-height: 1; }
+  h1 sup { font-size: 0.32em; letter-spacing: 0; vertical-align: 1.9em; margin-left: 0.15em; font-weight: 600; color: var(--muted); }
+  .slogan { font-family: var(--display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.22em; color: var(--accent); }
+  .lead { font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 4.8vw, 1.75rem); letter-spacing: -0.02em; line-height: 1.2; margin: 0.6rem 0 0; text-wrap: balance; }
+  .body { color: var(--muted); font-size: clamp(1rem, 3.5vw, 1.15rem); max-width: 30rem; margin: 0; text-wrap: pretty; }
+  .meta { display: grid; gap: 0.35rem; margin-top: 0.8rem; padding-top: 1.4rem; border-top: 1px solid var(--line); width: 100%; max-width: 26rem; font-size: 0.95rem; }
+  .meta b { font-weight: 600; }
+  .status { display: inline-flex; align-items: center; gap: 0.45rem; justify-self: center; font-size: 0.8rem; font-weight: 600; color: var(--accent);
+    background: var(--accent-soft); border-radius: 999px; padding: 0.3rem 0.8rem; }
+  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .contact { margin-top: 0.4rem; color: var(--muted); font-size: 0.9rem; }
+  .contact span.mail { color: var(--ink); font-weight: 600; user-select: all; }
+  a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  a:focus-visible, .langsw:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  footer { border-top: 1px solid var(--line); }
+  footer .wrap { padding-block: 1.2rem 1.6rem; text-align: center; font-size: 0.76rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <button class="langsw" id="langsw" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.8 2.6 15.4 0 18"/><path d="M12 3c-2.6 2.8-2.6 15.4 0 18"/></svg><span id="langlabel">Українською</span></button>
+</div></header>
+
+<main><div class="wrap">
+  <span class="mark" aria-hidden="true"><svg viewBox="0 0 22 22"><path d="M4.5 16 C 8 15.5, 9 9.5, 13.5 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="16.5" cy="5.5" r="1.9" fill="#fff"/></svg></span>
+  <h1>Trajectories<sup>™</sup></h1>
+  <div class="slogan">FORECAST · ACT · VERIFY</div>
+
+  <div lang="en" data-l="en">
+    <p class="lead">A system for physicians and clinics.</p>
+  </div>
+  <div lang="uk" data-l="uk" hidden>
+    <p class="lead">Система для лікарів і клінік.</p>
+  </div>
+
+  <p class="body" lang="en" data-l="en">Trajectories turns a person’s health goal into a measurable cycle, with outcomes evaluated against predefined criteria.</p>
+  <p class="body" lang="uk" data-l="uk" hidden>Trajectories перетворює мету людини щодо здоров’я на вимірюваний цикл, а результат оцінює за заздалегідь визначеними критеріями.</p>
+
+  <div class="meta">
+    <span class="status" data-l="en">Currently in pilot development</span>
+    <span class="status" data-l="uk" hidden>Зараз у пілотній розробці</span>
+    <div data-l="en">Founded by <b>Yevgen Shagov, MD, PhD</b> · <a href="https://shagov.pro" target="_blank" rel="noopener">shagov.pro</a></div>
+    <div data-l="uk" hidden>Засновник — <b>Євген Шагов, к.мед.н.</b> · <a href="https://shagov.pro" target="_blank" rel="noopener">shagov.pro</a></div>
+    <div class="contact" data-l="en">Partnerships: <span class="mail">yevgen@shagov.pro</span></div>
+    <div class="contact" data-l="uk" hidden>Співпраця: <span class="mail">yevgen@shagov.pro</span></div>
+  </div>
+</div></main>
+
+<footer><div class="wrap">© 2026 Yevgen Shagov. Trajectories™</div></footer>
+
+<script>
+  (function () {
+    var btn = document.getElementById('langsw'), label = document.getElementById('langlabel');
+    function set(l) {
+      document.documentElement.lang = l;
+      document.querySelectorAll('[data-l]').forEach(function (el) { el.hidden = el.getAttribute('data-l') !== l; });
+      label.textContent = l === 'en' ? 'Українською' : 'English';
+      try { localStorage.setItem('trj-lang', l); } catch (e) {}
+    }
+    var start = 'en';
+    try { start = localStorage.getItem('trj-lang') || ((navigator.language || '').slice(0, 2) === 'uk' ? 'uk' : 'en'); } catch (e) {}
+    set(start);
+    btn.addEventListener('click', function () { set(document.documentElement.lang === 'en' ? 'uk' : 'en'); });
+  })();
+</script>
+
+</body>
+</html>
